@@ -151,7 +151,7 @@ const experiences = [
   {
     id: 1,
     role: "Production Engineering Intern",
-    company: "Larsen & Toubro – Precision Engineering & Systems IC, Hazira",
+    company: "Larsen & Toubro",
     period: "May 2025 – Jul 2025",
     description:
       "Worked on heavy-lift fixture validation and additive manufacturing research for aerospace components. Analyzed materials like Ti-6Al-4V and Inconel 718 for microstructure and anisotropy.",
@@ -166,7 +166,7 @@ const experiences = [
   },
   {
     id: 2,
-    role: "Research: Condition Monitoring of Ball Bearings",
+    role: "Research: Condition Monitoring",
     company: "ICRAM 2025, IITRAM",
     period: "2024 – 2025",
     description:
@@ -194,7 +194,7 @@ const featuredProjects = [
     techStack: [
       { icon: Wind, name: "Aerodynamics" },
       { icon: Settings, name: "Planetary Gearbox" },
-      { icon: Box, name: "3D Printing (PETG)" },
+      { icon: Box, name: "3D Printing" },
     ],
     highlightStat: { label: "Est. Output", value: "500W", icon: Zap },
     domain: "Hardware",
@@ -209,7 +209,7 @@ const featuredProjects = [
     image: "/gslv-placeholder.jpg",
     gradient: "from-blue-600 to-indigo-500",
     techStack: [
-      { icon: Rocket, name: "Orbital Mechanics" },
+      { icon: Rocket, name: "Orbital Mech" },
       { icon: Code2, name: "MATLAB" },
       { icon: Activity, name: "Physics Sim" },
     ],
@@ -226,8 +226,8 @@ const featuredProjects = [
     image: "/bearing-placeholder.jpg",
     gradient: "from-orange-500 to-red-500",
     techStack: [
-      { icon: Zap, name: "TensorFlow/Keras" },
-      { icon: Crosshair, name: "Thermal Imaging" },
+      { icon: Zap, name: "TensorFlow" },
+      { icon: Crosshair, name: "Thermal Img" },
       { icon: Code2, name: "Python" },
     ],
     highlightStat: { label: "Accuracy", value: "99.83%", icon: Check },
@@ -239,11 +239,11 @@ const featuredProjects = [
     title: "SPECTRA — Exoplanet Detection",
     tag: "NASA Space Apps · Full Stack · XGBoost",
     summary:
-      " Web app build for International NASA Space App Challengethat processes Kepler mission data to classify celestial objects. Features a React frontend and Flask API backend to predict planetary habitability and water potential.",
+      "Web app built for International NASA Space Apps Challenge that processes Kepler mission data to classify celestial objects. Features a React frontend and Flask API backend.",
     image: "/spectra-placeholder.jpg",
     gradient: "from-purple-500 to-pink-600",
     techStack: [
-      { icon: Rocket, name: "React + Tailwind" },
+      { icon: Rocket, name: "React" },
       { icon: Code2, name: "Flask API" },
       { icon: TrendingUp, name: "XGBoost" },
     ],
@@ -294,12 +294,11 @@ const leadership = [
     title: "President — I-MECH, PDEU",
     period: "Aug 2023 – Present",
     summary:
-      "Led a team to organize technical events, workshops, and industry visits. Revamped initiatives to boost student participation and coordinated with faculty/experts to enhance learning.",
+      "Led a team to organize technical events, workshops, and industry visits. Revamped initiatives to boost student participation.",
     images: [
       "/imech-event-1.jpg",
       "/imech-event-2.jpg",
       "/imech-event-3.jpg",
-      "/imech-event-4.jpg"
     ],
     icon: Award,
   },
@@ -308,7 +307,7 @@ const leadership = [
     title: "Executive Director — Mech-A-Tech",
     period: "Jan 2023 – Present",
     summary:
-      "Managed content creation and publication of the department's technical newsletter. Ensured technical accuracy and timely dissemination of monthly editions.",
+      "Managed content creation and publication of the department's technical newsletter. Ensured technical accuracy.",
     images: [
       "/newsletter-launch.jpg",
       "/newsletter-team.jpg"
@@ -338,35 +337,35 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="relative min-h-screen bg-[#0F0F0F] text-[#E0E4EB] overflow-x-hidden pt-10 md:pt-16">
+    <main className="relative min-h-screen bg-[#0F0F0F] text-[#E0E4EB] overflow-hidden pt-10 md:pt-16">
       {/* BACKGROUND ELEMENTS */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <motion.div
           animate={{ x: [0, 30, 0], y: [0, -30, 0] }}
           transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-[radial-gradient(circle,#FFA50033,transparent_60%)] blur-3xl"
+          className="absolute -top-40 -left-40 h-64 w-64 md:h-96 md:w-96 rounded-full bg-[radial-gradient(circle,#FFA50033,transparent_60%)] blur-3xl"
         />
         <motion.div
           animate={{ x: [0, -30, 0], y: [0, 30, 0] }}
           transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-[radial-gradient(circle,#FFA50033,transparent_60%)] blur-3xl"
+          className="absolute -bottom-40 -right-40 h-64 w-64 md:h-96 md:w-96 rounded-full bg-[radial-gradient(circle,#FFA50033,transparent_60%)] blur-3xl"
         />
-        <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
+        <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px] md:bg-[size:50px_50px]" />
       </div>
 
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12 py-8 md:py-12"
+        className="relative z-10 mx-auto max-w-7xl px-4 md:px-8 lg:px-12 py-6 md:py-12"
       >
         {/* HERO SECTION */}
         <section className="relative mb-24 md:mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-            {/* 1. TEXT CONTENT (Left on Desktop, Bottom on Mobile) */}
+            {/* 1. TEXT CONTENT (Left) */}
             <motion.div
               variants={item}
-              className="order-2 lg:order-1 space-y-6 md:space-y-8"
+              className="order-2 lg:order-1 space-y-6 md:space-y-8 text-center lg:text-left"
             >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -382,7 +381,7 @@ export default function AboutPage() {
               </motion.div>
 
               <div className="relative">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+                <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
                   Hi, I&apos;m <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFA500] via-orange-400 to-red-500">
                     Neelay Jain
@@ -392,17 +391,17 @@ export default function AboutPage() {
                   initial={{ width: 0 }}
                   whileInView={{ width: "100px" }}
                   transition={{ delay: 0.5, duration: 1 }}
-                  className="h-1.5 bg-[#FFA500] mt-4 rounded-full"
+                  className="h-1.5 bg-[#FFA500] mt-4 rounded-full mx-auto lg:mx-0"
                 />
               </div>
 
-              <p className="text-sm md:text-base lg:text-lg text-gray-400 leading-relaxed max-w-xl">
+              <p className="text-sm md:text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 Bridging the gap between <span className="text-gray-100 font-semibold">Mechanical Systems</span> and <span className="text-gray-100 font-semibold">Artificial Intelligence</span>.
                 <br className="hidden md:block" />
                 I transform first principles into data-driven prototypes, specializing in CAD, FEA, and Computer Vision.
               </p>
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                 <Link href="#projects">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
@@ -426,12 +425,12 @@ export default function AboutPage() {
               </div>
             </motion.div>
 
-            {/* 2. VISUALS (Right on Desktop, Top on Mobile) */}
+            {/* 2. VISUALS (Right) */}
             <motion.div
               variants={item}
-              className="order-1 lg:order-2 relative mx-auto lg:mr-0 w-full max-w-[320px] lg:max-w-none flex justify-center lg:block"
+              className="order-1 lg:order-2 relative mx-auto lg:mr-0"
             >
-              <div className="relative z-20 rounded-2xl overflow-hidden border border-gray-800 bg-gray-900 w-[70vw] h-[70vw] max-w-[20rem] max-h-[20rem] md:w-[28rem] md:h-[28rem] md:max-w-none md:max-h-none shadow-2xl shadow-[#FFA500]/10 group">
+              <div className="relative z-20 rounded-2xl overflow-hidden border border-gray-800 bg-gray-900 w-[75vw] h-[75vw] max-w-[20rem] max-h-[20rem] md:w-[28rem] md:h-[28rem] shadow-2xl shadow-[#FFA500]/10 group mx-auto">
                 <Image
                   src="/me.jpg"
                   alt="Neelay Jain"
@@ -444,28 +443,28 @@ export default function AboutPage() {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-10 -right-10 w-24 h-24 md:w-32 md:h-32 border border-dashed border-[#FFA500]/30 rounded-full z-10 hidden sm:block"
+                className="absolute -top-6 -right-6 md:-top-10 md:-right-10 w-24 h-24 md:w-32 md:h-32 border border-dashed border-[#FFA500]/30 rounded-full z-10"
               />
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute -bottom-8 -left-8 w-32 h-32 md:w-40 md:h-40 border border-dotted border-gray-600/30 rounded-full z-10 hidden sm:block"
+                className="absolute -bottom-4 -left-4 md:-bottom-8 md:-left-8 w-32 h-32 md:w-40 md:h-40 border border-dotted border-gray-600/30 rounded-full z-10"
               />
 
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 1 }}
-                className="absolute -bottom-6 md:-bottom-32 -right-4 md:-right-4 bg-[#1A1A1A]/95 backdrop-blur-md border border-gray-700 p-4 md:p-5 rounded-xl shadow-xl z-30 w-[180px] md:w-[220px]"
+                className="hidden xs:block absolute -bottom-24 right-0 lg:-bottom-32 lg:-right-4 bg-[#1A1A1A]/95 backdrop-blur-md border border-gray-700 p-4 md:p-5 rounded-xl shadow-xl z-30 w-[180px] md:w-[220px]"
               >
-                <div className="flex items-center gap-2 mb-2 md:mb-3">
-                  <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-[#FFA500]" />
+                <div className="flex items-center gap-2 mb-3">
+                  <Sparkles className="w-4 h-4 text-[#FFA500]" />
                   <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Focus Areas</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  <span className="text-[9px] md:text-[10px] font-medium px-2 py-0.5 md:px-2.5 md:py-1 bg-white/5 border border-white/10 rounded-md text-gray-300">Generative Design</span>
-                  <span className="text-[9px] md:text-[10px] font-medium px-2 py-0.5 md:px-2.5 md:py-1 bg-white/5 border border-white/10 rounded-md text-gray-300">Comp Vision</span>
-                  <span className="text-[9px] md:text-[10px] font-medium px-2 py-0.5 md:px-2.5 md:py-1 bg-white/5 border border-white/10 rounded-md text-gray-300">Robotics</span>
+                  <span className="text-[9px] md:text-[10px] font-medium px-2 md:px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-gray-300">Generative Design</span>
+                  <span className="text-[9px] md:text-[10px] font-medium px-2 md:px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-gray-300">Comp Vision</span>
+                  <span className="text-[9px] md:text-[10px] font-medium px-2 md:px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-gray-300">Robotics</span>
                 </div>
               </motion.div>
             </motion.div>
@@ -474,18 +473,18 @@ export default function AboutPage() {
 
         {/* CAREER ENGINE */}
         <motion.section variants={container} className="mb-24 relative z-10">
-          <motion.div variants={item} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8">
+          <motion.div variants={item} className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
             {/* LEFT COLUMN: Experience */}
             <div className="lg:col-span-7 flex flex-col">
-              <div className="flex flex-col md:flex-row md:items-end justify-between mb-4 md:mb-6 gap-4">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
                 <h2 className="text-2xl md:text-3xl font-bold text-white">Experience</h2>
-                {/* Scrollable Tabs for Mobile */}
-                <div className="flex bg-[#1A1A1A] p-1 rounded-lg border border-white/5 overflow-x-auto no-scrollbar max-w-full">
+                {/* Horizontal Scrollable Tabs */}
+                <div className="flex bg-[#1A1A1A] p-1 rounded-lg border border-white/5 overflow-x-auto scrollbar-hide max-w-full">
                   {experiences.map((exp) => (
                     <button
                       key={exp.id}
                       onClick={() => setActiveExperience(exp)}
-                      className={`px-4 py-1.5 text-xs font-medium rounded-md transition-all whitespace-nowrap ${
+                      className={`whitespace-nowrap px-3 md:px-4 py-1.5 text-xs font-medium rounded-md transition-all flex-shrink-0 ${
                         activeExperience.id === exp.id
                           ? "bg-[#FFA500] text-black shadow-lg shadow-orange-500/20"
                           : "text-gray-400 hover:text-white hover:bg-white/5"
@@ -506,27 +505,29 @@ export default function AboutPage() {
                   transition={{ duration: 0.2 }}
                   className="flex-1 h-full"
                 >
-                  <SpotlightCard className="bg-[#0F0F0F] border border-[#333] rounded-2xl p-6 lg:p-8 h-full">
+                  <SpotlightCard className="bg-[#0F0F0F] border border-[#333] rounded-2xl p-5 md:p-8 h-full">
                     <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#FFA500]/5 blur-[80px] rounded-full -z-10" />
 
-                    <div className="flex justify-between items-start gap-4 mb-4">
+                    <div className="flex flex-col md:flex-row justify-between items-start gap-3 md:gap-4 mb-4">
                       <div>
-                        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white leading-snug">
+                        <h3 className="text-lg md:text-2xl font-bold text-white leading-snug">
                           {activeExperience.role}
                         </h3>
                         <p className="text-xs md:text-sm text-[#FFA500] font-medium mt-1 flex items-center gap-2">
                           <Briefcase size={14} /> {activeExperience.company}
                         </p>
                       </div>
-                      <Link href={activeExperience.href || "#"} className="hidden sm:block">
-                        <div className="bg-[#1A1A1A] hover:bg-[#FFA500] hover:text-black border border-white/10 text-white p-2.5 rounded-xl transition-colors cursor-pointer">
-                          <ExternalLink size={18} />
+                      <Link href={activeExperience.href || "#"} className="mt-2 md:mt-0">
+                        {/* FIXED LINE BELOW */}
+                        <div className="inline-flex bg-[#1A1A1A] hover:bg-[#FFA500] hover:text-black border border-white/10 text-white p-2 md:p-2.5 rounded-xl transition-colors cursor-pointer">
+                          <ExternalLink className="w-4 h-4 md:w-[18px] md:h-[18px]" />
+                          <span className="md:hidden ml-2 text-xs font-bold">View</span>
                         </div>
                       </Link>
                     </div>
 
-                    <div className="h-px w-full bg-gradient-to-r from-[#FFA500]/30 to-transparent my-5" />
-                    <p className="text-gray-400 text-xs md:text-sm leading-relaxed mb-6">
+                    <div className="h-px w-full bg-gradient-to-r from-[#FFA500]/30 to-transparent my-4 md:my-5" />
+                    <p className="text-gray-400 text-sm leading-relaxed mb-6">
                       {activeExperience.description}
                     </p>
 
@@ -556,7 +557,7 @@ export default function AboutPage() {
                           className="flex items-start gap-3"
                         >
                           <CheckCircle2 size={16} className="text-[#FFA500] mt-0.5 flex-shrink-0" />
-                          <span className="text-xs md:text-sm text-gray-300">{highlight}</span>
+                          <span className="text-sm text-gray-300">{highlight}</span>
                         </motion.div>
                       ))}
                     </motion.div>
@@ -567,18 +568,17 @@ export default function AboutPage() {
 
             {/* RIGHT COLUMN: Leadership */}
             <div className="lg:col-span-5 flex flex-col">
-              <div className="flex flex-col md:flex-row md:items-end justify-between mb-4 md:mb-6 gap-4">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
                 <h2 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
                   Leadership
                 </h2>
 
-                {/* Scrollable Tabs for Mobile */}
-                <div className="flex bg-[#1A1A1A] p-1 rounded-lg border border-white/5 overflow-x-auto no-scrollbar max-w-full">
+                <div className="flex bg-[#1A1A1A] p-1 rounded-lg border border-white/5 overflow-x-auto scrollbar-hide max-w-full">
                   {leadership.map((role) => (
                     <button
                       key={role.id}
                       onClick={() => handleLeadershipChange(role)}
-                      className={`relative px-3 py-1.5 text-xs font-medium rounded-md transition-all whitespace-nowrap ${
+                      className={`relative whitespace-nowrap px-3 py-1.5 text-xs font-medium rounded-md transition-all flex-shrink-0 ${
                         activeLeadership.id === role.id
                           ? "text-[#FFA500] bg-[#FFA500]/10 border border-[#FFA500]/20"
                           : "text-gray-400 hover:text-white hover:bg-white/5"
@@ -600,7 +600,7 @@ export default function AboutPage() {
                   className="flex-1 h-full"
                 >
                   <SpotlightCard className="bg-[#101010] border border-[#2A2A2A] rounded-2xl overflow-hidden flex flex-col h-full">
-                    <div className="relative h-40 md:h-48 bg-[#1A1A1A] group">
+                    <div className="relative h-48 md:h-56 bg-[#1A1A1A] group">
                       {activeLeadership.images && activeLeadership.images.length > 0 ? (
                         <>
                           <Image
@@ -611,19 +611,20 @@ export default function AboutPage() {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#101010] to-transparent opacity-60" />
 
-                          {/* Desktop arrows (hover) + Mobile arrows (always visible or tap zones) */}
-                          <div className="absolute inset-0 flex items-center justify-between p-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-20 pointer-events-none md:pointer-events-auto">
+                          <div className="absolute inset-0 flex items-center justify-between p-2 md:p-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-20">
                             <button
                               onClick={prevImage}
-                              className="pointer-events-auto p-2 bg-black/50 hover:bg-[#FFA500] text-white hover:text-black rounded-full backdrop-blur-sm transition-all"
+                              className="p-1.5 md:p-2 bg-black/50 hover:bg-[#FFA500] text-white hover:text-black rounded-full backdrop-blur-sm transition-all"
                             >
-                              <ChevronLeft size={20} />
+                              {/* FIXED LINE BELOW */}
+                              <ChevronLeft className="w-[18px] h-[18px] md:w-5 md:h-5" />
                             </button>
                             <button
                               onClick={nextImage}
-                              className="pointer-events-auto p-2 bg-black/50 hover:bg-[#FFA500] text-white hover:text-black rounded-full backdrop-blur-sm transition-all"
+                              className="p-1.5 md:p-2 bg-black/50 hover:bg-[#FFA500] text-white hover:text-black rounded-full backdrop-blur-sm transition-all"
                             >
-                              <ChevronRight size={20} />
+                              {/* FIXED LINE BELOW */}
+                              <ChevronRight className="w-[18px] h-[18px] md:w-5 md:h-5" />
                             </button>
                           </div>
 
@@ -647,15 +648,15 @@ export default function AboutPage() {
                       )}
                     </div>
 
-                    <div className="p-6 relative flex-1 bg-gradient-to-b from-[#101010] to-[#0A0A0A]">
-                      <div className="absolute -top-6 right-6 w-12 h-12 bg-[#1A1A1A] rounded-xl border border-[#333] flex items-center justify-center shadow-xl z-10">
+                    <div className="p-5 md:p-6 relative flex-1 bg-gradient-to-b from-[#101010] to-[#0A0A0A]">
+                      <div className="absolute -top-6 right-6 w-10 h-10 md:w-12 md:h-12 bg-[#1A1A1A] rounded-xl border border-[#333] flex items-center justify-center shadow-xl z-10">
                         {(() => {
                           const Icon = activeLeadership.icon;
                           return <Icon size={20} className="text-[#FFA500]" />;
                         })()}
                       </div>
 
-                      <h3 className="text-lg font-bold text-white pr-12 leading-tight mb-2">
+                      <h3 className="text-lg font-bold text-white pr-10 leading-tight mb-2">
                         {activeLeadership.title}
                       </h3>
 
@@ -694,7 +695,7 @@ export default function AboutPage() {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
             {featuredProjects.map((project, idx) => {
               const { highlightStat, domain } = project;
 
@@ -703,9 +704,9 @@ export default function AboutPage() {
                   key={project.title}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.7, ease: "easeOut", delay: idx * 0.1 }}
-                  className="flex flex-col gap-6 group"
+                  className="flex flex-col gap-4 md:gap-6 group"
                 >
                   <div className="w-full relative perspective-1000">
                     <div
@@ -761,7 +762,7 @@ export default function AboutPage() {
                     </motion.div>
                   </div>
 
-                  <div className="w-full space-y-4 pt-8">
+                  <div className="w-full space-y-4 pt-6 md:pt-8 px-2 md:px-0">
                     <div>
                       <span
                         className={`inline-block mb-2 text-[10px] font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r ${project.gradient}`}
@@ -773,7 +774,7 @@ export default function AboutPage() {
                       </h3>
                     </div>
 
-                    <p className="text-gray-400 leading-relaxed text-sm md:text-base">
+                    <p className="text-gray-400 leading-relaxed text-sm">
                       {project.summary}
                     </p>
 
@@ -945,12 +946,12 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="text-sm md:text-base text-[#A1A8B8] mb-8"
+                className="text-sm md:text-base text-[#A1A8B8] mb-8 max-w-2xl mx-auto"
               >
                 Open to internships and early-career roles in AI, robotics,
                 aerospace, and data-driven mechanical systems.
               </motion.p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.a
                   href="/contact"
                   whileHover={{
@@ -958,7 +959,7 @@ export default function AboutPage() {
                     boxShadow: "0 0 30px rgba(255,165,0,0.5)",
                   }}
                   whileTap={{ scale: 0.97 }}
-                  className="bg-[#FFA500]/15 border border-[#FFA500]/70 text-[#FFA500] px-8 py-3 rounded-full text-xs md:text-sm font-bold hover:bg-[#FFA500]/25 transition"
+                  className="bg-[#FFA500]/15 border border-[#FFA500]/70 text-[#FFA500] px-8 py-3 rounded-full text-sm font-bold hover:bg-[#FFA500]/25 transition"
                 >
                   Get in Touch
                 </motion.a>
@@ -969,7 +970,7 @@ export default function AboutPage() {
                     borderColor: "#FFA500",
                   }}
                   whileTap={{ scale: 0.97 }}
-                  className="border border-[#FFA500]/40 text-[#E0E4EB] px-8 py-3 rounded-full text-xs md:text-sm font-bold transition"
+                  className="border border-[#FFA500]/40 text-[#E0E4EB] px-8 py-3 rounded-full text-sm font-bold transition"
                 >
                   View All Projects
                 </motion.a>
