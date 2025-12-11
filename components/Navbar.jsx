@@ -23,27 +23,24 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, type: "spring", damping: 20, stiffness: 100 }}
-        // UPDATED: top-4 for mobile, top-6 for desktop to save screen real estate
-        className="fixed top-4 md:top-6 inset-x-0 z-50 flex justify-center pointer-events-none px-4 md:px-0"
+        className="fixed top-6 inset-x-0 z-50 flex justify-center pointer-events-none"
       >
-        <div className="pointer-events-auto relative flex items-center gap-2 rounded-full border border-white/5 bg-[#050505]/80 p-2 pl-4 shadow-[0_0_40px_-10px_rgba(255,165,0,0.1)] backdrop-blur-xl w-full max-w-fit justify-between md:justify-start">
+        <div className="pointer-events-auto relative flex items-center gap-2 rounded-full border border-white/5 bg-[#050505]/80 p-2 pl-4 shadow-[0_0_40px_-10px_rgba(255,165,0,0.1)] backdrop-blur-xl">
 
           {/* --- LOGO: Mechanical Badge --- */}
-          <Link href="/" className="group flex items-center gap-3 pr-4 md:border-r border-white/10" onClick={() => setIsOpen(false)}>
-            <div className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-[#1A1A1A] border border-white/10 group-hover:border-[#FFA500]/50 transition-colors shrink-0">
+          <Link href="/" className="group flex items-center gap-3 pr-4 border-r border-white/10">
+            <div className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-[#1A1A1A] border border-white/10 group-hover:border-[#FFA500]/50 transition-colors">
               <span className="font-mono text-xs font-bold text-[#FFA500]">NJ</span>
               {/* Rotating ring effect */}
               <div className="absolute inset-0 rounded-full border border-[#FFA500] border-t-transparent opacity-20 group-hover:animate-spin" />
             </div>
-            {/* UPDATED: Visible on mobile now as "NJ", full name on larger screens */}
-            <span className="font-mono text-[10px] tracking-widest text-zinc-500 uppercase block group-hover:text-white transition-colors whitespace-nowrap">
-              <span className="md:hidden">N. Jain</span>
-              <span className="hidden md:inline">Neelay Jain</span>
+            <span className="hidden font-mono text-[10px] tracking-widest text-zinc-500 uppercase sm:block group-hover:text-white transition-colors">
+              Neelay Jain
             </span>
           </Link>
 
           {/* --- DESKTOP: Navigation Links --- */}
-          <ul className="hidden items-center gap-1 md:flex">
+          <ul className="hidden items-center gap-1 sm:flex">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -70,13 +67,13 @@ export default function Navbar() {
             })}
           </ul>
 
-          {/* --- ACTION: Resume (Desktop) --- */}
+          {/* --- ACTION: Resume (Industrial Button) --- */}
           <motion.a
             href="/Neelay-Jain-CV.pdf"
             download
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="hidden md:flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900 px-4 py-2 ml-2 text-xs font-medium text-white transition-colors hover:bg-zinc-800 hover:border-white/20 group"
+            className="hidden sm:flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900 px-4 py-2 ml-2 text-xs font-medium text-white transition-colors hover:bg-zinc-800 hover:border-white/20 group"
           >
              <ArrowDownToLine size={12} className="text-zinc-500 group-hover:text-[#FFA500] transition-colors" />
              <span className="font-mono text-[10px] uppercase tracking-wider">Resume</span>
@@ -85,8 +82,7 @@ export default function Navbar() {
           {/* --- MOBILE: Hamburger --- */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-900 text-zinc-400 hover:bg-zinc-800 hover:text-white md:hidden shrink-0"
-            aria-label="Toggle Menu"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-900 text-zinc-400 hover:bg-zinc-800 hover:text-white sm:hidden"
           >
             {isOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -100,8 +96,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 16, scale: 1, filter: "blur(0px)" }}
               exit={{ opacity: 0, y: -20, scale: 0.95, filter: "blur(10px)" }}
               transition={{ duration: 0.2 }}
-              // UPDATED: consistent width calculation and centering
-              className="pointer-events-auto absolute top-full w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-white/10 bg-[#0A0A0A]/95 p-4 backdrop-blur-2xl shadow-2xl"
+              className="pointer-events-auto absolute top-full mt-2 w-[90%] max-w-sm rounded-2xl border border-white/10 bg-[#0A0A0A]/95 p-4 backdrop-blur-2xl shadow-2xl"
             >
                {/* Decorative Header */}
                <div className="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
