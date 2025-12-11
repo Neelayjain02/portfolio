@@ -161,7 +161,7 @@ const experiences = [
       "Reviewed AM technologies (SLM, DED) for aerospace applications"
     ],
     color: "#FF6B35",
-    href: "/projects",
+    href: "/lnt_report",
     ctaLabel: "View certificate",
   },
   {
@@ -981,4 +981,5 @@ export default function AboutPage() {
       </motion.div>
     </main>
   );
+
 }
