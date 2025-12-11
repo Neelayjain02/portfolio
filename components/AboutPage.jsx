@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef } from "react"; // Added useRef
+import { useState, useRef } from "react";
 import {
   Mail,
   MapPin,
@@ -338,7 +338,7 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="relative min-h-screen bg-[#0F0F0F] text-[#E0E4EB] overflow-hidden pt-10 md:pt-16">
+    <main className="relative min-h-screen bg-[#0F0F0F] text-[#E0E4EB] overflow-x-hidden pt-10 md:pt-16">
       {/* BACKGROUND ELEMENTS */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <motion.div
@@ -358,21 +358,21 @@ export default function AboutPage() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 mx-auto max-w-7xl px-6 py-12 md:px-8 lg:px-12"
+        className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12 py-8 md:py-12"
       >
         {/* HERO SECTION */}
-        <section className="relative mb-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* 1. TEXT CONTENT (Left) */}
+        <section className="relative mb-24 md:mb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+            {/* 1. TEXT CONTENT (Left on Desktop, Bottom on Mobile) */}
             <motion.div
               variants={item}
-              className="order-2 lg:order-1 space-y-8"
+              className="order-2 lg:order-1 space-y-6 md:space-y-8"
             >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#FFA500]/30 bg-[#FFA500]/5 text-[#FFA500] text-xs font-mono tracking-widest uppercase"
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#FFA500]/30 bg-[#FFA500]/5 text-[#FFA500] text-[10px] md:text-xs font-mono tracking-widest uppercase"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
@@ -382,7 +382,7 @@ export default function AboutPage() {
               </motion.div>
 
               <div className="relative">
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
                   Hi, I&apos;m <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFA500] via-orange-400 to-red-500">
                     Neelay Jain
@@ -396,7 +396,7 @@ export default function AboutPage() {
                 />
               </div>
 
-              <p className="text-base md:text-lg text-gray-400 leading-relaxed max-w-xl">
+              <p className="text-sm md:text-base lg:text-lg text-gray-400 leading-relaxed max-w-xl">
                 Bridging the gap between <span className="text-gray-100 font-semibold">Mechanical Systems</span> and <span className="text-gray-100 font-semibold">Artificial Intelligence</span>.
                 <br className="hidden md:block" />
                 I transform first principles into data-driven prototypes, specializing in CAD, FEA, and Computer Vision.
@@ -407,7 +407,7 @@ export default function AboutPage() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group relative px-6 py-3 bg-[#FFA500] text-black font-bold rounded-full transition-all flex items-center gap-2"
+                    className="group relative px-6 py-3 bg-[#FFA500] text-black font-bold rounded-full transition-all flex items-center gap-2 text-sm md:text-base"
                   >
                     View Projects
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -418,7 +418,7 @@ export default function AboutPage() {
                 <motion.button
                   whileHover={{ scale: 1.05, borderColor: "#FFA500" }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 border border-gray-700 text-gray-300 hover:text-white rounded-full transition-all flex items-center gap-2 bg-black/20 backdrop-blur-sm"
+                  className="px-6 py-3 border border-gray-700 text-gray-300 hover:text-white rounded-full transition-all flex items-center gap-2 bg-black/20 backdrop-blur-sm text-sm md:text-base"
                 >
                   <Download className="w-4 h-4" />
                   Resume
@@ -426,12 +426,12 @@ export default function AboutPage() {
               </div>
             </motion.div>
 
-            {/* 2. VISUALS (Right) */}
+            {/* 2. VISUALS (Right on Desktop, Top on Mobile) */}
             <motion.div
               variants={item}
-              className="order-1 lg:order-2 relative mx-auto lg:mr-0"
+              className="order-1 lg:order-2 relative mx-auto lg:mr-0 w-full max-w-[320px] lg:max-w-none flex justify-center lg:block"
             >
-              <div className="relative z-20 rounded-2xl overflow-hidden border border-gray-800 bg-gray-900 w-[20rem] h-[20rem] md:w-[28rem] md:h-[28rem] shadow-2xl shadow-[#FFA500]/10 group">
+              <div className="relative z-20 rounded-2xl overflow-hidden border border-gray-800 bg-gray-900 w-[70vw] h-[70vw] max-w-[20rem] max-h-[20rem] md:w-[28rem] md:h-[28rem] md:max-w-none md:max-h-none shadow-2xl shadow-[#FFA500]/10 group">
                 <Image
                   src="/me.jpg"
                   alt="Neelay Jain"
@@ -444,28 +444,28 @@ export default function AboutPage() {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-10 -right-10 w-32 h-32 border border-dashed border-[#FFA500]/30 rounded-full z-10"
+                className="absolute -top-10 -right-10 w-24 h-24 md:w-32 md:h-32 border border-dashed border-[#FFA500]/30 rounded-full z-10 hidden sm:block"
               />
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute -bottom-8 -left-8 w-40 h-40 border border-dotted border-gray-600/30 rounded-full z-10"
+                className="absolute -bottom-8 -left-8 w-32 h-32 md:w-40 md:h-40 border border-dotted border-gray-600/30 rounded-full z-10 hidden sm:block"
               />
 
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 1 }}
-                className="absolute -bottom-32 -right-6 md:-right-4 bg-[#1A1A1A]/95 backdrop-blur-md border border-gray-700 p-5 rounded-xl shadow-xl z-30 w-[220px]"
+                className="absolute -bottom-6 md:-bottom-32 -right-4 md:-right-4 bg-[#1A1A1A]/95 backdrop-blur-md border border-gray-700 p-4 md:p-5 rounded-xl shadow-xl z-30 w-[180px] md:w-[220px]"
               >
-                <div className="flex items-center gap-2 mb-3">
-                  <Sparkles className="w-4 h-4 text-[#FFA500]" />
-                  <span className="text-xs font-bold text-white uppercase tracking-wider">Focus Areas</span>
+                <div className="flex items-center gap-2 mb-2 md:mb-3">
+                  <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-[#FFA500]" />
+                  <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Focus Areas</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  <span className="text-[10px] font-medium px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-gray-300">Generative Design</span>
-                  <span className="text-[10px] font-medium px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-gray-300">Comp Vision</span>
-                  <span className="text-[10px] font-medium px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-gray-300">Robotics</span>
+                  <span className="text-[9px] md:text-[10px] font-medium px-2 py-0.5 md:px-2.5 md:py-1 bg-white/5 border border-white/10 rounded-md text-gray-300">Generative Design</span>
+                  <span className="text-[9px] md:text-[10px] font-medium px-2 py-0.5 md:px-2.5 md:py-1 bg-white/5 border border-white/10 rounded-md text-gray-300">Comp Vision</span>
+                  <span className="text-[9px] md:text-[10px] font-medium px-2 py-0.5 md:px-2.5 md:py-1 bg-white/5 border border-white/10 rounded-md text-gray-300">Robotics</span>
                 </div>
               </motion.div>
             </motion.div>
@@ -474,17 +474,18 @@ export default function AboutPage() {
 
         {/* CAREER ENGINE */}
         <motion.section variants={container} className="mb-24 relative z-10">
-          <motion.div variants={item} className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+          <motion.div variants={item} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8">
             {/* LEFT COLUMN: Experience */}
             <div className="lg:col-span-7 flex flex-col">
-              <div className="flex items-end justify-between mb-6">
-                <h2 className="text-3xl font-bold text-white">Experience</h2>
-                <div className="flex bg-[#1A1A1A] p-1 rounded-lg border border-white/5">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-4 md:mb-6 gap-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-white">Experience</h2>
+                {/* Scrollable Tabs for Mobile */}
+                <div className="flex bg-[#1A1A1A] p-1 rounded-lg border border-white/5 overflow-x-auto no-scrollbar max-w-full">
                   {experiences.map((exp) => (
                     <button
                       key={exp.id}
                       onClick={() => setActiveExperience(exp)}
-                      className={`px-4 py-1.5 text-xs font-medium rounded-md transition-all ${
+                      className={`px-4 py-1.5 text-xs font-medium rounded-md transition-all whitespace-nowrap ${
                         activeExperience.id === exp.id
                           ? "bg-[#FFA500] text-black shadow-lg shadow-orange-500/20"
                           : "text-gray-400 hover:text-white hover:bg-white/5"
@@ -505,16 +506,15 @@ export default function AboutPage() {
                   transition={{ duration: 0.2 }}
                   className="flex-1 h-full"
                 >
-                  {/* WRAPPED WITH SPOTLIGHT */}
                   <SpotlightCard className="bg-[#0F0F0F] border border-[#333] rounded-2xl p-6 lg:p-8 h-full">
                     <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#FFA500]/5 blur-[80px] rounded-full -z-10" />
 
                     <div className="flex justify-between items-start gap-4 mb-4">
                       <div>
-                        <h3 className="text-xl md:text-2xl font-bold text-white leading-snug">
+                        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white leading-snug">
                           {activeExperience.role}
                         </h3>
-                        <p className="text-sm text-[#FFA500] font-medium mt-1 flex items-center gap-2">
+                        <p className="text-xs md:text-sm text-[#FFA500] font-medium mt-1 flex items-center gap-2">
                           <Briefcase size={14} /> {activeExperience.company}
                         </p>
                       </div>
@@ -526,7 +526,7 @@ export default function AboutPage() {
                     </div>
 
                     <div className="h-px w-full bg-gradient-to-r from-[#FFA500]/30 to-transparent my-5" />
-                    <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                    <p className="text-gray-400 text-xs md:text-sm leading-relaxed mb-6">
                       {activeExperience.description}
                     </p>
 
@@ -556,7 +556,7 @@ export default function AboutPage() {
                           className="flex items-start gap-3"
                         >
                           <CheckCircle2 size={16} className="text-[#FFA500] mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-gray-300">{highlight}</span>
+                          <span className="text-xs md:text-sm text-gray-300">{highlight}</span>
                         </motion.div>
                       ))}
                     </motion.div>
@@ -567,17 +567,18 @@ export default function AboutPage() {
 
             {/* RIGHT COLUMN: Leadership */}
             <div className="lg:col-span-5 flex flex-col">
-              <div className="flex items-end justify-between mb-6">
-                <h2 className="text-3xl font-bold text-white flex items-center gap-3">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-4 md:mb-6 gap-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
                   Leadership
                 </h2>
 
-                <div className="flex bg-[#1A1A1A] p-1 rounded-lg border border-white/5">
+                {/* Scrollable Tabs for Mobile */}
+                <div className="flex bg-[#1A1A1A] p-1 rounded-lg border border-white/5 overflow-x-auto no-scrollbar max-w-full">
                   {leadership.map((role) => (
                     <button
                       key={role.id}
                       onClick={() => handleLeadershipChange(role)}
-                      className={`relative px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+                      className={`relative px-3 py-1.5 text-xs font-medium rounded-md transition-all whitespace-nowrap ${
                         activeLeadership.id === role.id
                           ? "text-[#FFA500] bg-[#FFA500]/10 border border-[#FFA500]/20"
                           : "text-gray-400 hover:text-white hover:bg-white/5"
@@ -598,9 +599,8 @@ export default function AboutPage() {
                   transition={{ duration: 0.2 }}
                   className="flex-1 h-full"
                 >
-                  {/* WRAPPED WITH SPOTLIGHT */}
                   <SpotlightCard className="bg-[#101010] border border-[#2A2A2A] rounded-2xl overflow-hidden flex flex-col h-full">
-                    <div className="relative h-48 bg-[#1A1A1A] group">
+                    <div className="relative h-40 md:h-48 bg-[#1A1A1A] group">
                       {activeLeadership.images && activeLeadership.images.length > 0 ? (
                         <>
                           <Image
@@ -611,16 +611,17 @@ export default function AboutPage() {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#101010] to-transparent opacity-60" />
 
-                          <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                          {/* Desktop arrows (hover) + Mobile arrows (always visible or tap zones) */}
+                          <div className="absolute inset-0 flex items-center justify-between p-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-20 pointer-events-none md:pointer-events-auto">
                             <button
                               onClick={prevImage}
-                              className="p-2 bg-black/50 hover:bg-[#FFA500] text-white hover:text-black rounded-full backdrop-blur-sm transition-all"
+                              className="pointer-events-auto p-2 bg-black/50 hover:bg-[#FFA500] text-white hover:text-black rounded-full backdrop-blur-sm transition-all"
                             >
                               <ChevronLeft size={20} />
                             </button>
                             <button
                               onClick={nextImage}
-                              className="p-2 bg-black/50 hover:bg-[#FFA500] text-white hover:text-black rounded-full backdrop-blur-sm transition-all"
+                              className="pointer-events-auto p-2 bg-black/50 hover:bg-[#FFA500] text-white hover:text-black rounded-full backdrop-blur-sm transition-all"
                             >
                               <ChevronRight size={20} />
                             </button>
@@ -658,7 +659,7 @@ export default function AboutPage() {
                         {activeLeadership.title}
                       </h3>
 
-                      <p className="text-sm text-gray-400 leading-relaxed font-medium">
+                      <p className="text-xs md:text-sm text-gray-400 leading-relaxed font-medium">
                         {activeLeadership.summary}
                       </p>
                     </div>
@@ -670,10 +671,10 @@ export default function AboutPage() {
         </motion.section>
 
         {/* === FEATURED PROJECTS === */}
-        <section id="projects" className="mb-32 relative z-10">
+        <section id="projects" className="mb-24 md:mb-32 relative z-10">
           <motion.div
             variants={item}
-            className="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-4"
+            className="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 md:mb-16 gap-4"
           >
             <div>
               <h2 className="text-3xl md:text-5xl font-bold text-[#E0E4EB] mb-3 leading-tight">
@@ -682,7 +683,7 @@ export default function AboutPage() {
                   Innovation
                 </span>
               </h2>
-              <p className="text-[#A1A8B8] max-w-md">
+              <p className="text-[#A1A8B8] max-w-md text-sm md:text-base">
                 Deep dives into complex engineering problems solved with code, data, and design.
               </p>
             </div>
@@ -772,7 +773,7 @@ export default function AboutPage() {
                       </h3>
                     </div>
 
-                    <p className="text-gray-400 leading-relaxed text-sm">
+                    <p className="text-gray-400 leading-relaxed text-sm md:text-base">
                       {project.summary}
                     </p>
 
@@ -812,11 +813,11 @@ export default function AboutPage() {
             })}
           </div>
 
-          <div className="mt-20 text-center">
+          <div className="mt-16 md:mt-20 text-center">
             <Link href="/projects">
               <motion.button
                 whileHover={{ scale: 1.05, borderColor: "#FFA500", color: "#FFA500" }}
-                className="px-8 py-3 border border-gray-700 rounded-full text-gray-300 font-semibold transition-all"
+                className="px-6 md:px-8 py-3 border border-gray-700 rounded-full text-gray-300 font-semibold transition-all text-sm md:text-base"
               >
                 View Complete Project Archive
               </motion.button>
@@ -827,10 +828,9 @@ export default function AboutPage() {
         {/* SKILLS */}
         <motion.section variants={container} className="mb-20">
           <motion.div variants={item}>
-            {/* WRAPPED WITH SPOTLIGHT */}
             <SpotlightCard className="bg-[#101010]/95 border border-[#FFA500]/25 rounded-2xl p-6 md:p-8 lg:p-10 shadow-[0_0_40px_rgba(0,0,0,0.4)]">
               <div className="mb-8 border-b border-[#FFA500]/10 pb-6">
-                <h2 className="text-3xl font-bold text-[#E0E4EB] mb-2">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#E0E4EB] mb-2">
                   Skills &amp; Tools
                 </h2>
                 <p className="text-sm text-[#A1A8B8]">
@@ -921,8 +921,7 @@ export default function AboutPage() {
 
         {/* CTA SECTION */}
         <motion.section variants={item} className="mb-10">
-          {/* WRAPPED WITH SPOTLIGHT */}
-          <SpotlightCard className="relative bg-[#101010]/95 border border-[#FFA500]/25 text-[#E0E4EB] rounded-2xl p-10 md:p-12 text-center shadow-[0_30px_80px_rgba(0,0,0,0.9)] overflow-hidden">
+          <SpotlightCard className="relative bg-[#101010]/95 border border-[#FFA500]/25 text-[#E0E4EB] rounded-2xl p-8 md:p-12 text-center shadow-[0_30px_80px_rgba(0,0,0,0.9)] overflow-hidden">
             <motion.div
               animate={{
                 opacity: [0.3, 0.6, 0.3],
@@ -953,7 +952,7 @@ export default function AboutPage() {
               </motion.p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <motion.a
-                  href="mailto:neelayjain957@gmail.com"
+                  href="/contact"
                   whileHover={{
                     scale: 1.05,
                     boxShadow: "0 0 30px rgba(255,165,0,0.5)",
@@ -981,5 +980,4 @@ export default function AboutPage() {
       </motion.div>
     </main>
   );
-
 }
