@@ -15,47 +15,49 @@ import {
 
 export default function LnTReport() {
   return (
-    // Changed to h-screen to force full height fitting
-    <main className="h-screen bg-[#050505] text-[#E0E4EB] font-sans selection:bg-[#FFA500] selection:text-black overflow-hidden flex flex-col">
+    // UPDATED: min-h-screen allows scrolling on mobile, lg:h-screen locks it on desktop
+    <main className="min-h-screen lg:h-screen bg-[#050505] text-[#E0E4EB] font-sans selection:bg-[#FFA500] selection:text-black overflow-y-auto lg:overflow-hidden flex flex-col">
 
       {/* --- BACKGROUND FX --- */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 opacity-[0.08]"
           style={{ backgroundImage: "linear-gradient(#222 1px, transparent 1px), linear-gradient(90deg, #222 1px, transparent 1px)", backgroundSize: "32px 32px" }}
         />
-        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#FFA500]/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[-10%] right-[-10%] w-[300px] lg:w-[500px] h-[300px] lg:h-[500px] bg-[#FFA500]/5 rounded-full blur-[80px] lg:blur-[120px]" />
       </div>
 
       {/* --- HEADER --- */}
-      <header className="relative z-20 flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#0A0A0A]/90 backdrop-blur-md shrink-0">
-        <div className="flex items-center gap-4">
+      <header className="relative z-20 flex items-center justify-between px-4 lg:px-6 py-4 border-b border-white/10 bg-[#0A0A0A]/90 backdrop-blur-md shrink-0">
+        <div className="flex items-center gap-3 lg:gap-4">
           <Link href="/">
             <button className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-[#FFA500] transition-colors">
-              <ArrowLeft size={16} /> Portfolio
+              <ArrowLeft size={16} /> <span className="hidden sm:inline">Portfolio</span>
             </button>
           </Link>
           <div className="h-6 w-px bg-white/10" />
-          <h1 className="text-sm md:text-base font-bold text-white flex items-center gap-2">
-            <FileText size={18} className="text-[#FFA500]" />
-            Internship Report: L&T Precision Engineering
+          <h1 className="text-xs md:text-base font-bold text-white flex items-center gap-2 truncate max-w-[200px] md:max-w-none">
+            <FileText size={18} className="text-[#FFA500] shrink-0" />
+            <span className="truncate">Internship Report: L&T Precision</span>
           </h1>
         </div>
 
         <a
           href="/LnT_Report.pdf"
           download
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1A1002] border border-[#FFA500]/40 text-[#FFA500] text-xs font-bold hover:bg-[#FFA500] hover:text-black transition-all shadow-[0_0_15px_rgba(255,165,0,0.1)]"
+          className="flex items-center gap-2 px-4 py-2 lg:px-5 lg:py-2.5 rounded-full bg-[#1A1002] border border-[#FFA500]/40 text-[#FFA500] text-[10px] lg:text-xs font-bold hover:bg-[#FFA500] hover:text-black transition-all shadow-[0_0_15px_rgba(255,165,0,0.1)] shrink-0"
         >
-          <Download size={16} /> <span className="hidden sm:inline">Download PDF</span>
+          <Download size={14} /> <span className="hidden sm:inline">Download PDF</span>
         </a>
       </header>
 
       {/* --- MAIN CONTENT (Split View) --- */}
+      {/* UPDATED: flex-col for mobile, lg:flex-row for desktop */}
       <div className="flex-1 relative z-10 flex flex-col lg:flex-row overflow-hidden">
 
         {/* SIDEBAR: Project Context */}
-        <aside className="w-full lg:w-[400px] xl:w-[450px] border-b lg:border-b-0 lg:border-r border-white/10 bg-[#0C0C0C] p-6 lg:p-8 overflow-y-auto custom-scrollbar shrink-0">
-          <div className="space-y-10">
+        {/* UPDATED: w-full on mobile, fixed width on desktop. h-auto on mobile. */}
+        <aside className="w-full lg:w-[400px] xl:w-[450px] border-b lg:border-b-0 lg:border-r border-white/10 bg-[#0C0C0C] p-6 lg:p-8 overflow-y-auto custom-scrollbar shrink-0 order-2 lg:order-1 h-auto lg:h-full">
+          <div className="space-y-8 lg:space-y-10">
 
             {/* Meta Data */}
             <div className="space-y-5">
@@ -65,7 +67,7 @@ export default function LnTReport() {
               </div>
 
               <div>
-                <h2 className="text-3xl font-bold text-white leading-tight mb-2">Larsen & Toubro</h2>
+                <h2 className="text-2xl lg:text-3xl font-bold text-white leading-tight mb-2">Larsen & Toubro</h2>
                 <p className="text-zinc-400 text-sm">Precision Engineering & Systems IC</p>
               </div>
 
@@ -137,9 +139,10 @@ export default function LnTReport() {
           </div>
         </aside>
 
-        {/* PDF VIEWER AREA - MAXIMIZED HEIGHT */}
-        <section className="flex-1 bg-[#050505] relative p-0 lg:p-6 flex flex-col h-[600px] lg:h-auto">
-          <div className="flex-1 w-full h-full bg-[#111] rounded-none lg:rounded-2xl border-t lg:border border-white/10 overflow-hidden shadow-2xl relative group">
+        {/* PDF VIEWER AREA */}
+        {/* UPDATED: Order 1 to show PDF first on mobile. Fixed height on mobile (60vh), auto on desktop. */}
+        <section className="flex-1 bg-[#050505] relative p-0 lg:p-6 flex flex-col h-[50vh] lg:h-auto order-1 lg:order-2">
+          <div className="flex-1 w-full h-full bg-[#111] rounded-none lg:rounded-2xl border-b lg:border border-white/10 overflow-hidden shadow-2xl relative group">
 
             {/* PDF Iframe with Full Height */}
             <iframe
